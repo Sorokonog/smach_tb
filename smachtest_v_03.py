@@ -66,7 +66,7 @@ class StateMachineController():
         with self.sm_top:
             # Add states to the container
             smach.StateMachine.add('Mon', smach_ros.MonitorState(
-                "/sm_reset", String, self.monitor_cb, output_keys=['mon_data'], input_keys=['sm_data']), 
+                "/sm_reset", String, self.monitor_cb, output_keys=['mon_data']),
                 transitions={'invalid':'Controller', 'valid':'Controller', 'preempted':'Controller'},
                 remapping={'mon_data':'sm_data'})
             
